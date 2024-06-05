@@ -16,3 +16,13 @@ class RegistroSerializer(serializers.ModelSerializer):
         model=Registro
         exclude = []
 
+class ListarAlunosCursoSerializer(serializers.ModelSerializer):
+    aluno= serializers.ReadOnlyField(source='aluno.nome')
+    matricula = serializers.ReadOnlyField(source='aluno.matricula')
+    periodo = serializers.SerializerMethodField()
+    class Meta:
+        model=Registro
+        fields = ['aluno', 'matricula', 'periodo']
+    def get_periodo(self, obj):
+        return obj.get_periodo_display()
+    
