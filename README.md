@@ -5,4 +5,5 @@ It involves creating an API that manages lists of students and courses in a scho
 
 ## How to install and use this project
 1.Clone this project
+
 2.Download the requirements in requirements.txt
